@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{{ super() }}
+<!-- <link rel="stylesheet" href="{{ url_for('static', filename='story.css') }}"> -->
+<script>
+  var story_id = {{story_id}};
+</script>
+<script type="module" src="{{ url_for('static', filename='js/story.js') }}"></script>
+{% endblock %}

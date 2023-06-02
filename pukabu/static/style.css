@@ -1,0 +1,190 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.avatar {
+  border-radius: 50%;
+}
+.rating-pluses {
+  color: green;
+}
+.rating-minuses {
+  color: red;
+}
+
+/* Башка */
+header {
+  max-height: 64px;
+  width: 100%;
+  margin-bottom: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.158);
+}
+#header-wrapper {
+  display: flex;
+  flex-direction: row;
+  padding: 0 100px;
+}
+
+#header-logo {
+  font-size: xx-large;
+  width: 160px;
+}
+
+#header-menu {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.header-menu-elem {
+  margin-right: 35px;
+  font-size: larger;
+  text-decoration: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.header-menu-elem:hover {
+  background-color: rgba(0, 255, 0, 0.103);
+  color: green;
+  transition: background-color 0.1s ease-in-out color 0.1s ease-in-out;
+}
+.header-menu-elem a {
+  padding: 0 8px;
+  text-decoration: none;
+  color: green
+}
+
+#header-right-menu {
+  width: 160px;
+}
+
+/* Главное */
+#main-inner {
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 900px;
+  max-width: 1020px;
+  width: 100%;
+  flex: 1;
+}
+
+/* Сайдбар */
+#sidebar {
+  float: right;
+  width: 300px;
+  height: 500px;
+  background-color: antiquewhite;
+}
+
+/* Лента */
+#main {
+  width: 69%;
+  background-color: rgb(228, 228, 228);
+  box-shadow: 10px 0 10px rgb(228, 228, 228), 
+              -10px 0 10px rgb(228, 228, 228),
+              0 5px 5px rgb(228, 228, 228),
+              0 -5px 5px rgb(228, 228, 228);
+}
+
+/* История */
+.story {
+  background-color: white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  border-radius: 15px;
+  position: relative;
+}
+.story-title-text {
+  color: rgb(66, 66, 66);
+}
+.story-author-info {
+  display: flex;
+  width: 100%;
+  margin: 5px 10px;
+}
+.story-author-avatar {
+  width: 32px;
+  height: 32px;
+  float: left;
+  margin-right: 10px;
+}
+.story-content {
+}
+.story-content *, .story-info {
+  margin-bottom: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.story-content p {
+}
+.story-image {
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 100%;
+}
+
+/* Комментарий */
+.comment {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  background-color: white;
+  border-radius: 15px;
+  padding: 3px;
+}
+.comment-author-info {
+  width: 100%;
+}
+.comment-avatar {
+  height: 32px;
+  width: 32px;
+  float: left;
+  margin-right: 8px;
+}
+.comment-username-block {
+  display: flex;
+  flex-direction: row;
+}
+.comment-username {
+  text-decoration: none;
+  color: #333333;
+  margin-right: 10px;
+}
+.comment-rating {
+  display: flex;
+  flex-direction: row;
+}
+.comment-rating-element {
+  margin-right: 5px;
+}
+.comment-content {
+  display: block;
+}
+.comment-image {
+  float: left;
+  max-height: 300px;
+}
+
+.comment-chilren {
+  padding-left: 15px;
+  margin-left: 15px;
+  border-left: solid black 1px;
+}
+.comment[children-closed] > .comment-chilren {
+  visibility: collapse;
+}
+.comment-toggle-children {
+  margin-top: 5px;
+  margin-left: 20px;
+}
+.comment-toggle-children-button {
+  width: fit-content;
+  cursor: pointer;
+}

@@ -1,0 +1,18 @@
+/* Пост */
+.story-left {
+  position: absolute;
+  --width: 15%;
+  width: var(--width);
+  left: calc(0px - var(--width) - 15px);
+  height: 100%;
+}
+
+.story .story-left-voting {
+  position: sticky;
+  top: 30%;
+}
+
+/* Топовый коммент */
+.comment {
+  padding: 0 10px;
+}

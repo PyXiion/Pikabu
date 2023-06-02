@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  {% block head %}
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{% endblock %}</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <script src="{{ url_for('static', filename='js/libs/ejs.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='js/utils.js') }}"></script>
+  {% endblock %}
+</head>
+<body>  
+  <!-- Башка -->
+  <header>
+    {% include 'header.html' %}
+  </header>
+  <!-- Основное тело -->
+  <main>
+    <div id="main-inner">
+      <!-- Сайдбар -->
+      <div id="sidebar">
+        {% include 'sidebar.html' %}
+      </div>
+      <!-- Лента -->
+      <div id="main">
+        {% block main %}{% endblock %}
+      </div>
+    </div>
+  </main>
+</body>
+</html>

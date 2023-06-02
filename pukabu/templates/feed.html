@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='feed.css') }}">
+
+<script>
+  var feedmode = "{{feedmode}}";
+</script>
+<script type="module" src="{{ url_for('static', filename='js/feed.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,37 @@
+<div class="comment" comment-id="<%= id %>" children-closed>
+  <div class="comment-author-info">
+    <img src="<%= author.avatar %>" class="avatar comment-avatar" />
+    <div class="comment-username-block">
+      <a href="/user/<%= author.name %>" class="comment-username">
+        <p><%= author.name %></p>
+      </a>
+      <p><%= formatDate(new Date(time)) %></p>
+    </div>
+    <div class="comment-rating">
+      <p class="comment-rating-element"><%= rating %></p>
+      <p class="comment-rating-element rating-pluses"><%= pluses %></p>
+      <p class="comment-rating-element rating-minuses"><%= minuses %></p>
+    </div>
+  </div>
+
+  <div class="comment-content">
+    <div class="comment-text">
+      <%- content.text %>
+    </div>
+    
+    <% for (const image of content.images) { %>
+      <img src="<%= image.small %>" class="comment-image"/>
+    <% } %>
+  </div>
+
+  <% if (children.length > 0) { %>
+    <div class="comment-chilren">
+      <% for (const child of children) {%>
+        <%- child.toHtml() %>
+      <% } %>
+    </div>
+    <div class="comment-toggle-children" onclick="openChildren(this)">
+      <div class="comment-toggle-children-button">Открыть ветку</div>
+    </div>
+  <% } %>
+</div>

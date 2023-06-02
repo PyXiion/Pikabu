@@ -1,0 +1,55 @@
+<article class="story">
+  <div class="story-author-info">
+    <img src="<%= author.avatar %>" class="avatar story-author-avatar">
+    <div class="story-author-other-info">
+      <a href="/user/<%= author.name %>">
+        <p class="username story-author-username"><%= author.name %></p>
+      </a>
+      <%= formatDate(new Date(time)) %>
+    </div>
+  </div>
+
+  <div class="story-info">
+    <h2 class="story-title">
+      <a class="story-title-text" target="_blank" href="/story/<%= id %>">
+        <%= title %>
+      </a>
+    </h2>
+  </div>
+
+  <% if (from_feed) { %>
+  <div class="story-left">
+    <div class="story-left-voting">
+      <p>Рейтинг: <%= digs %></p>
+      <p>Плюсов: <span class="rating-pluses"><%= pluses %></span></p>
+      <p>Минусов: <span class="rating-minuses"><%= minuses %></span></p>
+    </div>
+  </div>
+  <% } %>
+  
+  <div class="story-content">
+    <% for (const elem of content) { %>
+      <% if (elem.type == 't') { %>
+        <%- elem.data %>
+      <% } else if (elem.type == 'i') { %>
+        <img src="<%- elem.data.large %>" class="story-image" loading="lazy" referrerpolicy="no-referrer">
+      <% } %>
+    <% } %>
+  </div>
+  
+  <% if (from_feed) { %>
+    <hr />
+
+    <div class="story-feed-buttons">
+      <a href="/story/<%= id %>#comments">
+        <p>Комментарии (<%= comments_count %>)</p>
+      </a>
+    </div>
+
+    <hr />
+
+    <div class="story-top-comment">
+      <%- top_comment %>
+    </div>
+  <% } %>
+</article>
