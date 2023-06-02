@@ -2,7 +2,7 @@
   <div class="comment-author-info">
     <img src="<%= author.avatar %>" class="avatar comment-avatar" />
     <div class="comment-username-block">
-      <a href="/user/<%= author.name %>" class="comment-username">
+      <a target="_blank" href="/user/<%= author.name %>" class="comment-username">
         <p><%= author.name %></p>
       </a>
       <p><%= formatDate(new Date(time)) %></p>

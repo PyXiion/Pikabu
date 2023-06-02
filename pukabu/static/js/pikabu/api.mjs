@@ -11,8 +11,13 @@ let headers = {
 }
 
 export const FeedMode = {
-  Best: 'nbest_24',
-  Hot: 'hot'
+  Best: 'nbest_alltime',
+  Best24: 'nbest_24',
+  Best7: 'nbest_week',
+  Best30: 'nbest_month',
+  Hot: 'hot_act',
+  New: 'upcoming',
+  // Subs: 'subs'
 }
 
 /**
@@ -71,6 +76,25 @@ async function makeRequest(controller, params) {
   return data.response
 }
 
+export async function getUserStories(username, page=1) {
+  return await makeRequest('story.profile.get', {user_name: username, page})
+}
+
+/**
+ * Get Pikabu profile
+ * @param {string} username 
+ * @returns 
+ */
+export async function getProfile(username) {
+  return await makeRequest('user.profile.get', {user_name: username})
+}
+
+/**
+ * Get Pikabu feed
+ * @param {string} feedmode 
+ * @param {int} page 
+ * @returns 
+ */
 export async function getFeed(feedmode, page=1) {
   return await makeRequest('feed', {cmd: feedmode, page})
 }

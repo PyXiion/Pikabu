@@ -10,6 +10,11 @@
 .story .story-left-voting {
   position: sticky;
   top: 30%;
+  height: 20%;
+}
+
+.story-feed-buttons {
+  padding: 0 10px;
 }
 
 /* Топовый коммент */

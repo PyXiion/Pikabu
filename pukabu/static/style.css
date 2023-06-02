@@ -48,13 +48,17 @@ header {
 }
 .header-menu-elem:hover {
   background-color: rgba(0, 255, 0, 0.103);
-  color: green;
   transition: background-color 0.1s ease-in-out color 0.1s ease-in-out;
 }
 .header-menu-elem a {
   padding: 0 8px;
   text-decoration: none;
   color: green
+}
+.header-menu-elem a:hover {
+  padding: 0 8px;
+  text-decoration: none;
+  color: rgb(19, 202, 19)
 }
 
 #header-right-menu {
@@ -75,12 +79,16 @@ header {
 #sidebar {
   float: right;
   width: 300px;
-  height: 500px;
+  height: 10000px;
+}
+#sidebar-main {
   background-color: antiquewhite;
+  height: 500px;
 }
 
 /* Лента */
 #main {
+  padding: 15px 0;
   width: 69%;
   background-color: rgb(228, 228, 228);
   box-shadow: 10px 0 10px rgb(228, 228, 228), 
@@ -98,6 +106,7 @@ header {
   margin-bottom: 15px;
   border-radius: 15px;
   position: relative;
+  padding: 10px 0;
 }
 .story-title-text {
   color: rgb(66, 66, 66);
@@ -122,10 +131,17 @@ header {
 }
 .story-content p {
 }
+
 .story-image {
   margin-left: 0px;
   margin-right: 0px;
   width: 100%;
+}
+.story-video {
+  margin-left: 0px;
+  margin-right: 0px;
+  max-height: 80vh;
+  max-width: 100%;
 }
 
 /* Комментарий */
@@ -178,7 +194,7 @@ header {
   border-left: solid black 1px;
 }
 .comment[children-closed] > .comment-chilren {
-  visibility: collapse;
+  display: none;
 }
 .comment-toggle-children {
   margin-top: 5px;

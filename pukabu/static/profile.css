@@ -1,0 +1,32 @@
+.profile {
+  background-color: white;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.profile-background, .profile-background * {
+  width: 100%;
+  border-radius: 15px 15px 0 0;
+}
+
+.profile-data {
+  display: flex;
+  flex-direction: row;
+  padding: 5px 15px;
+}
+.profile-data-main {
+  width: 128px;
+  margin-right: 15px;
+}
+.profile-data-main-avatar {
+  width: 100%;
+}
+.profile-data-main-username {
+  width: 100%;
+  font-weight: 600;
+  text-align: center;
+}
+
+.profile-data-line {
+  margin-bottom: 10px;
+}

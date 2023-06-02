@@ -2,7 +2,7 @@
   <div class="story-author-info">
     <img src="<%= author.avatar %>" class="avatar story-author-avatar">
     <div class="story-author-other-info">
-      <a href="/user/<%= author.name %>">
+      <a target="_blank" href="/user/<%= author.name %>">
         <p class="username story-author-username"><%= author.name %></p>
       </a>
       <%= formatDate(new Date(time)) %>
@@ -20,19 +20,37 @@
   <% if (from_feed) { %>
   <div class="story-left">
     <div class="story-left-voting">
-      <p>Рейтинг: <%= digs %></p>
-      <p>Плюсов: <span class="rating-pluses"><%= pluses %></span></p>
-      <p>Минусов: <span class="rating-minuses"><%= minuses %></span></p>
+
+      <% if (digs) { %>
+        <p>Рейтинг:<br/><%= digs %></p>
+        <br />
+
+        <p>Плюсов:<br/><span class="rating-pluses"><%= pluses %></span></p>
+        <p>Минусов:<br/><span class="rating-minuses"><%= minuses %></span></p>
+      <% } else { %>
+        <p>Нет рейтинга :(</p>
+      <% } %>
     </div>
   </div>
   <% } %>
   
   <div class="story-content">
     <% for (const elem of content) { %>
+
+      <%# ТЕКСТ %>
       <% if (elem.type == 't') { %>
         <%- elem.data %>
+      
+      <%# КАРТИНКА %>
       <% } else if (elem.type == 'i') { %>
-        <img src="<%- elem.data.large %>" class="story-image" loading="lazy" referrerpolicy="no-referrer">
+        <img src="<%= elem.data.large || elem.data.small %>" class="story-image" loading="lazy" referrerpolicy="no-referrer">
+      
+      <%# ВИДЕО %>
+      <% } else if (elem.type == 'vf') { %>
+        <video controls class="story-video" src="<%= elem.data.mp4 && elem.data.mp4.url || elem.data.webm && elem.data.webm.url %>">
+
+        </video>
+      
       <% } %>
     <% } %>
   </div>
@@ -46,10 +64,12 @@
       </a>
     </div>
 
-    <hr />
 
-    <div class="story-top-comment">
-      <%- top_comment %>
-    </div>
+    <% if (top_comment) { %>
+      <hr />
+      <div class="story-top-comment">
+        <%- top_comment.toHtml() %>
+      </div>
+    <% } %>
   <% } %>
 </article>

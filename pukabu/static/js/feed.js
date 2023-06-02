@@ -3,9 +3,6 @@ import { htmlToElement } from "./utils.mjs";
 import { PikabuStory } from './pikabu/story.mjs'
 import { PikabuFeed } from "./pikabu/feed.js";
 
-/** @type {HTMLElement} */
-let main_elem
-
 /** @type {Array<HTMLElement>} */
 let stories = []
 
@@ -20,15 +17,6 @@ function addStory(story) {
 
   main_elem.appendChild(post)
   stories.push(post)
-}
-
-async function init() {
-  if (!api.checkApiKey())
-    await api.fetchApiKey()
-  
-  await load_templates()
-
-  main_elem = document.getElementById("main")
 }
 
 async function main() {

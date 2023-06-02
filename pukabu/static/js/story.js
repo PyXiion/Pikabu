@@ -1,23 +1,9 @@
 import * as api from "./pikabu/api.mjs";
 import { htmlToElement } from "./utils.mjs";
 import { PikabuStory } from './pikabu/story.mjs'
-import { PikabuCommentTree } from "./pikabu/comment_tree.js";
-
-
-/** @type {HTMLElement} */
-let main_elem
 
 /** @type {PikabuStory} */
 let story = null;
-
-async function init() {
-  if (!api.checkApiKey())
-    await api.fetchApiKey()
-  
-  await load_templates()
-
-  main_elem = document.getElementById("main")
-}
 
 /** 
  * @param {any} pikabu element 
