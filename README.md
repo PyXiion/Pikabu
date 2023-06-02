@@ -1,3 +1,5 @@
+[Русский](https://github.com/PyXiion/Pikabu/blob/master/README-ru.md)
+
 # Alternative Pikabu site with a mobile app API
 
 Pikabu, but with "Best" and stability. No experiments on the part of the Pikabu team, 
