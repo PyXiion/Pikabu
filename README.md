@@ -5,7 +5,7 @@
 Pikabu, but with "Best" and stability. No experiments on the part of the Pikabu team, 
 that "improve" the interface (until they break the API, of course).
 
-Works on the client side (after getting the API key). You need a CORS proxy to work properly 
+Works on the client side (after getting the API key). You need a [CORS proxy](https://github.com/PyXiion/PikabuAPIProxy) to work properly 
 (or disable CORS protection in your browser).
 
 ## If you want just the API
