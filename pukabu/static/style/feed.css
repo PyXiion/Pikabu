@@ -10,7 +10,7 @@
 .story .story-left-voting {
   position: sticky;
   top: 30%;
-  height: 20%;
+  height: fit-content;
 }
 
 .story-feed-buttons {
