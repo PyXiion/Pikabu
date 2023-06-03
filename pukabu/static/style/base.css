@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", "Open Sans", helvetica, arial, sans-serif;
+}
+
+/* Главное */
+#main-inner {
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 900px;
+  max-width: 1020px;
+  width: 100%;
+  flex: 1;
+}
+
+#main {
+  padding: 15px 0;
+  width: 69%;
+  background-color: rgb(228, 228, 228);
+  box-shadow: 10px 0 10px rgb(228, 228, 228), 
+              -10px 0 10px rgb(228, 228, 228),
+              0 5px 5px rgb(228, 228, 228),
+              0 -5px 5px rgb(228, 228, 228);
+}
+
+.avatar {
+  border-radius: 50%;
+}
+
+.rating-pluses {
+  color: green;
+}
+.rating-minuses {
+  color: red;
+}

@@ -7,6 +7,7 @@ class PikabuFeed {
   }
 
   constructor(payload) {
+    /** @type {Array<PikabuStory>} */
     this.stories = payload.data.map(story_payload => new PikabuStory(story_payload));
     this.total = payload.total_stories
     this.page = payload.page

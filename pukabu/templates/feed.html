@@ -2,7 +2,9 @@
 
 {% block head %}
 {{ super() }}
-<link rel="stylesheet" href="{{ url_for('static', filename='feed.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style/feed.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style/story.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style/comment.css') }}">
 
 <script>
   var feedmode = "{{feedmode}}";

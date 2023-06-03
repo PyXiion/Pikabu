@@ -8,15 +8,18 @@
     <div class="profile-data-main">
       <img src="<%= avatar %>" class="avatar profile-data-main-avatar" />
       <p class="profile-data-main-username"><%= name %></p>
-      <p class="profile-data-main-about"><%= about %></p>
     </div>
 
     <div class="profile-data-additional">
+      <p class="profile-data-line"><%= about %></p>
+
       <p class="profile-data-line">На сайте уже <%= registration_duration %></p>
+
       <p class="profile-data-line">
         Поставил <span class="rating-pluses"><%= pluses_count %></span> плюсиков и 
         <span class="rating-minuses"><%= minuses_count %></span> минусиков
       </p>
+      
       <p class="profile-data-line">Подписчиков: <%= subscribers %></p>
       <p class="profile-data-line">Написал <%= comments_count %> комментариев</p>
       <p class="profile-data-line">Написал <%= stories_count %> постов</p>

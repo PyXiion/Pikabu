@@ -1,4 +1,6 @@
 <div id="sidebar-main">
+<% if (authorized) { %>
+
   <div id="sidebar-account">
     <div class="user-avatar">
       <a href="/you">
@@ -9,4 +11,16 @@
       <p class="user-name">Тут ничего нет</p>
     </div>
   </div>
+
+<% } else { %>
+  
+  <!-- Форма авторизации -->
+  <form id="auth-form">
+    <input type="text" name="login">
+    <input type="password" name="password">
+
+    <input type="submit" value="Войти">
+  </form>
+
+<% } %>
 </div>

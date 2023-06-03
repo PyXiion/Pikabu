@@ -1,7 +1,7 @@
 import * as api from "./pikabu/api.mjs";
 import { htmlToElement } from "./utils.mjs";
 import { PikabuStory } from './pikabu/story.mjs'
-import { PikabuFeed } from "./pikabu/feed.js";
+import { PikabuFeed } from "./pikabu/feed.mjs";
 
 /** @type {Array<HTMLElement>} */
 let stories = []
@@ -19,14 +19,18 @@ function addStory(story) {
   stories.push(post)
 }
 
-async function main() {
-  await init()
-  
-  let feed = await PikabuFeed.fetch(api.FeedMode[feedmode])
+async function loadPage(page=1) {
+  let feed = await client.getFeed(api.FeedMode[feedmode], page)
 
   for (const story of feed.stories) {
     addStory(story)
   }
+}
+
+async function main() {
+  await init()
+  
+  await loadPage()
 }
 
 function handleScroll() {

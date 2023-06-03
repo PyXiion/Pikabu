@@ -1,0 +1,55 @@
+/* Пост */
+.story-left {
+  position: absolute;
+  --width: 15%;
+  width: var(--width);
+  left: calc(0px - var(--width) - 15px);
+  height: 100%;
+}
+
+.story .story-left-voting {
+  position: sticky;
+  top: 30%;
+  height: 20%;
+}
+
+.story-feed-buttons {
+  padding: 0 10px;
+}
+
+.vote-story-digs {
+  width: 100%;
+  font-size: large;
+  text-align: center;
+}
+.vote-story-block {
+  display: flex;
+  flex-direction: row;
+
+  height: fit-content;
+  width: 100%;
+}
+.vote-btn {
+  font-size: x-large;
+  width: 50%;
+  height: 100%;
+  text-align: center;
+  font-weight: bolder;
+
+  border-radius: 10px;
+  cursor: pointer;
+}
+.vote-btn-plus:hover, .vote-story-block[current-vote="1"] > .vote-btn-plus  {
+  background-color: rgba(0, 128, 0, 0.096);
+}
+.vote-btn-minus:hover, .vote-story-block[current-vote="-1"] > .vote-btn-minus {
+  background-color: rgba(128, 0, 0, 0.096);
+}
+.vote-story-num {
+  font-size: small;
+}
+
+/* Топовый коммент */
+.comment {
+  padding: 0 10px;
+}

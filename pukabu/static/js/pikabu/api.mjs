@@ -4,10 +4,9 @@ const apiEndPoint = 'http://localhost:45450/'
 let apiKey = null
 
 let headers = {
-  "deviceuid": "0",
   "deviceid": "0",
   "user-agent": "ru.pikabu.android/1.21.15 (SM-N975F Android 7.1.2)",
-  "accept-encoding": "gzip",
+  "accept-encoding": "gzip"
 }
 
 export const FeedMode = {
@@ -61,21 +60,47 @@ function createRequestData(controller, params) {
  * @returns 
  */
 async function makeRequest(controller, params) {
+  if (client.getId() != -1) {
+    params["user_id"] = client.getId()
+  }
+
   const requestData = createRequestData(controller, params)
   const response = await fetch(apiEndPoint + controller, {
     method: "POST",
     body: JSON.stringify(requestData),
-    headers: headers
+    headers: headers,
+    credentials: 'include'
   })
   
   let data = await response.json()
   
   if (!"response" in data)
     throw Error("Failed to make request.")
-  
+
   return data.response
 }
 
+export async function vote(item_id, type, value) {
+  if (client.getId() == -1) return; // TODO throw error
+  return await makeRequest('vote.new', {type, vote: value, item_id})
+}
+
+/**
+ * Auth
+ * @param {string} username 
+ * @param {string} password 
+ * @returns 
+ */
+export async function auth(username, password) {
+  return await makeRequest('user.auth', {user_name: username, password}, true)
+}
+
+/**
+ * Get user's stories
+ * @param {string} username 
+ * @param {number} page 
+ * @returns 
+ */
 export async function getUserStories(username, page=1) {
   return await makeRequest('story.profile.get', {user_name: username, page})
 }

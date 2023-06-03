@@ -2,8 +2,10 @@
 
 {% block head %}
 {{ super() }}
-<link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='feed.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style/profile.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style/feed.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style/story.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style/comment.css') }}">
 <script>
   var profile_user_name = "{{username}}";
 </script>

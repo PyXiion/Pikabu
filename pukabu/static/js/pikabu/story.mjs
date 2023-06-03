@@ -18,6 +18,8 @@ class PikabuStory {
     this.minuses = payload.story_minuses
     this.digs = payload.story_digs
 
+    this.user_vote = payload.curr_user_vote
+
     this.comments_count = payload.comments_count
 
     this.tags = payload.tags

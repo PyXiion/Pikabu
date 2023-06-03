@@ -13,6 +13,7 @@ function addElement(html) {
   main_elem.appendChild(post)
 }
 
+
 async function main() {
   await init()
   

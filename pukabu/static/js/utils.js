@@ -11,6 +11,8 @@ async function load_templates() {
   templates.story_comments = await fetch_template('story_comments.ejs')
   templates.comment = await fetch_template('comment.ejs')
   templates.profile = await fetch_template('profile.ejs')
+
+  templates.sidebar = await fetch_template('sidebar.ejs')
 }
 
 /**
