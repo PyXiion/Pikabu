@@ -16,13 +16,14 @@
       <p class="profile-data-line">На сайте уже <%= registration_duration %></p>
 
       <p class="profile-data-line">
-        Поставил <span class="rating-pluses"><%= pluses_count %></span> плюсиков и 
-        <span class="rating-minuses"><%= minuses_count %></span> минусиков
+        Поставил 
+        <span class="rating-pluses"><%= pluses_count %></span> <%= inflect(pluses_count, words.pluses) %> и 
+        <span class="rating-minuses"><%= minuses_count %></span> <%= inflect(minuses_count, words.minuses) %>
       </p>
       
-      <p class="profile-data-line">Подписчиков: <%= subscribers %></p>
-      <p class="profile-data-line">Написал <%= comments_count %> комментариев</p>
-      <p class="profile-data-line">Написал <%= stories_count %> постов</p>
+      <p class="profile-data-line"><%= getInflected(subscribers, words.subscribers) %></p>
+      <p class="profile-data-line">Написал <%= getInflected(comments_count, words.comments) %></p>
+      <p class="profile-data-line">Написал <%= getInflected(stories_count, words.stories) %></p>
     </div>
 
   </div>

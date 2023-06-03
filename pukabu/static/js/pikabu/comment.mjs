@@ -27,8 +27,6 @@ class PikabuComment {
       is_moderator: payload.is_moderator_username,
       is_deleted: payload.is_deleted
     }
-
-    this.children = []
   }
 
   toHtml() {

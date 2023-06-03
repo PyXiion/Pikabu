@@ -4,7 +4,9 @@
   --width: 15%;
   width: var(--width);
   left: calc(0px - var(--width) - 15px);
+  padding: 50px 0;
   height: 100%;
+  box-sizing: border-box;
 }
 
 .story .story-left-voting {
@@ -37,7 +39,6 @@
   font-weight: bolder;
 
   border-radius: 10px;
-  cursor: pointer;
 }
 .vote-btn-plus:hover, .vote-story-block[current-vote="1"] > .vote-btn-plus  {
   background-color: rgba(0, 128, 0, 0.096);

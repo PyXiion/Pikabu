@@ -16,7 +16,7 @@ export const FeedMode = {
   Best30: 'nbest_month',
   Hot: 'hot_act',
   New: 'upcoming',
-  // Subs: 'subs'
+  Subs: 'subs'
 }
 
 /**

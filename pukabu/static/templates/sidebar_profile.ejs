@@ -1,0 +1,39 @@
+<div id="sidebar-main" class="sidebar-element">
+<% if (authorized) { %>
+
+  <div class="sidebar-account sidebar-inner-element">
+
+    <div class="sidebar-user sidebar-user-element">
+      <div class="sidebar-user-avatar">
+        <a href="/user/<%= client.name %>">
+          <img src="<%= client.avatar %>" alt="Ты" class="avatar" />
+        </a>
+      </div>
+
+      <div class="sidebar-user-other">
+        <p class="sidebar-user-name"><%= client.name %></p>
+        <p class="quit-button button" onclick="client.logout()">Выйти</p>
+      </div>
+    </div>
+
+    <div class="sidebar-user-additional sidebar-user-element">
+      <p><span class="sidebar-user-number"><%= client.rating %></span> рейтинг</p>
+      <p><span class="sidebar-user-number"><%= client.subscribers %></span> подписчик(ов)</p>
+    </div>
+
+  </div>
+
+<% } else { %>
+  
+  <!-- Форма авторизации -->
+  <div class="sidebar-inner-element">
+    <form id="auth-form" class="auth-form">
+      <input type="text" name="login" class="auth-form-field">
+      <input type="password" name="password" class="auth-form-field">
+  
+      <input type="submit" value="Войти" class="auth-form-submit">
+    </form>
+  </div>
+
+<% } %>
+</div>

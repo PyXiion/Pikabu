@@ -8,11 +8,34 @@ async function fetch_template(filename) {
 
 async function load_templates() {
   templates.story = await fetch_template('story.ejs')
-  templates.story_comments = await fetch_template('story_comments.ejs')
   templates.comment = await fetch_template('comment.ejs')
   templates.profile = await fetch_template('profile.ejs')
 
-  templates.sidebar = await fetch_template('sidebar.ejs')
+  templates.sidebar_profile = await fetch_template('sidebar_profile.ejs')
+}
+
+var words = {
+  ru: {
+    pluses: ['плюсик', 'плюсика', 'плюсиков'],
+    minuses: ['минусик', 'минусика', 'минусиков'],
+    stories: ['пост', 'поста', 'постов'],
+    comments: ['комментарий', 'комментария', 'комментариев'],
+    subscribers: ['подписчик', 'подписчика', 'подписчиков'],
+  }
+}
+words = words.ru
+
+function inflect(num, words) {
+  if (num%10 === 1 && num%100 !== 11) {
+    return words[0]
+  } else if (num%10 >= 2 && num%10 <= 4 && !(num%100 >= 12 && num%100 <= 14)) {
+    return words[1]
+  } else {
+    return words[2]
+  }
+}
+function getInflected(num, words) {
+  return num + ' ' + inflect(num, words)
 }
 
 /**
@@ -48,15 +71,6 @@ function formatDate(date, locale = 'ru') {
     ]
   }
   const units = ['year', 'month', 'week', 'day', 'hour', 'minute', 'second']
-  const inflect = (num, words) => {
-    if (num === 1) {
-      return words[0]
-    } else if (num >= 2 && num <= 4) {
-      return words[1]
-    } else {
-      return words[2]
-    }
-  }
 
   if (diff < 1000) {
     return 'только что'

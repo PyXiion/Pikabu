@@ -24,6 +24,11 @@ async function init() {
 
   let pukabu_inited_event = new Event('pukabu_inited')
   document.dispatchEvent(pukabu_inited_event)
+
+  if (client.getId() == -1) {
+    let subs = document.getElementById("header-menu-sub")
+    subs.remove()
+  }
 }
 
 let vote_process = false;
@@ -48,7 +53,13 @@ async function vote(elem, type, value) {
   vote_process = false
 }
 
+function onScroll() {
+
+}
+
 window.init = init;
 window.vote = vote
 
 window.client = client;
+
+addEventListener("scroll", onScroll)

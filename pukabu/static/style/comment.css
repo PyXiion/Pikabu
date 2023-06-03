@@ -1,13 +1,18 @@
 .comment {
-  width: 100%;
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
   margin-top: 10px;
   background-color: white;
   border-radius: 15px;
-  padding: 3px;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
 }
+.comment > * {
+  margin-bottom: 5px;
+}
+
 .comment-author-info {
   width: 100%;
 }
@@ -44,32 +49,54 @@
 .comment-children {
   display: flex;
   flex-direction: row;
+  overflow-y: hidden;
+  transition: opacity linear 0.4s;
 }
 .comment[children-closed] > .comment-children {
-  visibility: collapse;
-  display: none;
+  /* visibility: collapse; */
+  /* display: none; */
+  opacity: 0;
+  height: 0;
 }
+
 .comment-children-left {
+  display: block;
   width: 30px;
-  height: 100%;
-  /* float: left; */
+  min-height: 100%;
+}
+.comment-children-left-line {
+  float: right;
+  width: 50%;
+  min-height: 100%;
+  border-left: solid 1px rgba(0, 0, 0, 0.397);
+  border-bottom: solid 1px rgba(0, 0, 0, 0.397);
+  border-bottom-left-radius: 15px;
 }
 .comment-children-content {
+  max-width: calc(100% - 30px);
   /* padding-left: 15px; */
   /* margin-left: 15px; */
   /* border-left: solid black 1px; */
 }
+
 .comment-toggle-children {
   margin-top: 5px;
-  margin-left: 20px;
+  padding-left: 20px;
 }
 .comment-toggle-children-button {
   width: fit-content;
   cursor: pointer;
 }
 .comment-toggle-children {
-  color: rgb(0, 88, 0);
-}
-.comment[children-closed] > .comment-toggle-children {
   color: green;
+}
+.comment:not([children-closed]) > .comment-toggle-children {
+  color: rgb(0, 88, 0);
+  display: none;
+  visibility: collapse;
+}
+
+.comment-children:not([has-children]) + .comment-toggle-children {
+  display: none;
+  visibility: collapse;
 }

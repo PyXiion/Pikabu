@@ -5,7 +5,7 @@
       <a target="_blank" href="/user/<%= author.name %>" class="comment-username">
         <p><%= author.name %></p>
       </a>
-      <p><%= formatDate(new Date(time)) %></p>
+      <p><%= formatDate(new Date(time)) %> <%= id %> от <%= parent_id %></p>
     </div>
     <div class="comment-rating">
       <p class="comment-rating-element"><%= rating %></p>
@@ -24,21 +24,16 @@
     <% } %>
   </div>
 
-  <% if (children.length > 0) { %>
-
-    <div class="comment-children">
-      <div class="comment-children-left"></div>
-
-      <div class="comment-children-content">
-        <% for (const child of children) {%>
-          <%- child.toHtml() %>
-        <% } %>
-      </div>
-
-    </div>
-    <div class="comment-toggle-children" onclick="openChildren(this)">
-      <div class="comment-toggle-children-button">Открыть ветку</div>
+  <div class="comment-children">
+    <div class="comment-children-left button" onclick="openChildren(this.parentElement)">
+      <div class="comment-children-left-line"></div>
     </div>
 
-  <% } %>
+    <div class="comment-children-content">
+    </div>
+
+  </div>
+  <div class="comment-toggle-children button" onclick="openChildren(this)">
+    <div class="comment-toggle-children-button">Открыть ветку</div>
+  </div>
 </div>

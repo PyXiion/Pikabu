@@ -12,7 +12,7 @@
   <div class="story-info">
     <h2 class="story-title">
       <a class="story-title-text" target="_blank" href="/story/<%= id %>">
-        <%= title %>
+        <%- title %>
       </a>
     </h2>
   </div>
@@ -26,12 +26,12 @@
 
       <div class="vote-story-block" voting-item-id="<%= id %>" current-vote="<%= user_vote %>">
 
-        <div class="rating-pluses vote-btn-plus vote-btn" onclick="vote(this, 'story', 1)">
+        <div class="rating-pluses vote-btn-plus button vote-btn" onclick="vote(this, 'story', 1)">
           <p>+</p>
           <p class="vote-story-num"><%= pluses %></p>
         </div>
 
-        <div class="rating-minuses vote-btn-minus vote-btn" onclick="vote(this, 'story', -1)" >
+        <div class="rating-minuses vote-btn-minus button vote-btn" onclick="vote(this, 'story', -1)" >
           <p>-</p>
           <p class="vote-story-num"><%= minuses %></p>
         </div>
@@ -62,7 +62,6 @@
   </div>
   
   <% if (from_feed) { %>
-    <hr />
 
     <div class="story-feed-buttons">
       <a href="/story/<%= id %>#comments">
@@ -72,10 +71,14 @@
 
 
     <% if (top_comment) { %>
-      <hr />
       <div class="story-top-comment">
         <%- top_comment.toHtml() %>
       </div>
     <% } %>
   <% } %>
 </article>
+
+<% if (!from_feed) { %>
+  <div id="comments" class="comment-block">
+  </div>
+<% } %>

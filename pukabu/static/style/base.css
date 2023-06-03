@@ -16,7 +16,7 @@
 
 #main {
   padding: 15px 0;
-  width: 69%;
+  width: 67%;
   background-color: rgb(228, 228, 228);
   box-shadow: 10px 0 10px rgb(228, 228, 228), 
               -10px 0 10px rgb(228, 228, 228),
@@ -33,4 +33,8 @@
 }
 .rating-minuses {
   color: red;
+}
+
+.button {
+  cursor: pointer;
 }

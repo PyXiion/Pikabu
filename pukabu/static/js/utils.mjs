@@ -54,12 +54,22 @@ export class Stack {
 /**
  * Convert HTML to element
  * @param {string} html HTML code
- * @returns document element
+ * @returns {HTMLElement} document element
  */
 export function htmlToElement(html) {
   let template = document.createElement('template')
   template.innerHTML = html
   return template.content.firstChild
+}
+/**
+ * Convert HTML to elements
+ * @param {string} html HTML code
+ * @returns {NodeListOf<ChildNode>} document elements
+ */
+export function htmlToElements(html) {
+  let template = document.createElement('template')
+  template.innerHTML = html
+  return template.content.childNodes
 }
 
 export function MD5 (d) {

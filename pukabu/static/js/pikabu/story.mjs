@@ -1,6 +1,5 @@
 import * as api from './api.mjs'
 import { PikabuComment } from './comment.mjs'
-import { PikabuCommentTree } from './comment_tree.js'
 
 class PikabuStory {
   static async fetch(story_id) {
@@ -39,21 +38,19 @@ class PikabuStory {
     if (payload.top_comment) {
       this.top_comment = new PikabuComment(payload.top_comment, true)
     }
+    
+    this.comments_page = 1
 
-    this.comments = []
+    this.comments = null
     this.from_feed = false
     if (comments_payload)
-      this.comments = new PikabuCommentTree(comments_payload.map((c) => new PikabuComment(c)))
+      this.comments = comments_payload.map((c) => new PikabuComment(c))
     else
       this.from_feed = true
   }
 
   toHtml() {
     return templates.story(this)
-  }
-
-  commentsBlock() {
-    return templates.story_comments(this)
   }
 }
 

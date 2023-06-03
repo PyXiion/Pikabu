@@ -18,11 +18,11 @@ async function sidebarLogin(elem) {
 }
 
 async function main() {
-  let authorized = false
+  let authorized = client.getId() != -1
 
-  addElement(templates.sidebar({
-    authorized: client.getId() != -1,
-    user: client
+  addElement(templates.sidebar_profile({
+    authorized: authorized,
+    client: client
   }))
 
   if (!authorized) {
