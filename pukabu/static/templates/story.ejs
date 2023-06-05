@@ -34,19 +34,19 @@
     <div class="story-left-voting">
 
       <% if (digs) { %>
-        <p class="vote-story-digs"><%= digs %></p>
+        <p class="vote-story-digs vote-rating"><%= digs %></p>
       <% } %>
 
-      <div class="vote-story-block" voting-item-id="<%= id %>" current-vote="<%= user_vote %>">
+      <div class="vote-story-block vote-block" voting-item-id="<%= id %>" current-vote="<%= user_vote %>">
 
-        <div class="rating-pluses vote-btn-plus button vote-btn" onclick="vote(this, 'story', 1)">
+        <div class="rating-pluses vote-btn-plus vote-story-btn button vote-btn" onclick="vote(this.parentElement, 'story', 1)">
           <p>+</p>
-          <p class="vote-story-num"><%= pluses %></p>
+          <p class="vote-story-num vote-num"><%= pluses %></p>
         </div>
 
-        <div class="rating-minuses vote-btn-minus button vote-btn" onclick="vote(this, 'story', -1)" >
+        <div class="rating-minuses vote-btn-minus vote-story-btn button vote-btn" onclick="vote(this.parentElement, 'story', -1)" >
           <p>-</p>
-          <p class="vote-story-num"><%= minuses %></p>
+          <p class="vote-story-num vote-num"><%= minuses %></p>
         </div>
         
       </div>
@@ -87,7 +87,7 @@
 
 
     <% if (top_comment) { %>
-      <div class="story-top-comment">
+      <div class="top-comment">
         <%- top_comment.toHtml() %>
       </div>
     <% } %>

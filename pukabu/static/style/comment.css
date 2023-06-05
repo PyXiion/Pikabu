@@ -7,7 +7,7 @@
   border-radius: 15px;
   padding: 10px;
   width: 100%;
-  box-sizing: border-box;
+  position: relative;
 }
 .comment > * {
   margin-bottom: 5px;
@@ -98,4 +98,25 @@
 .comment-children:not([has-children]) + .comment-toggle-children {
   display: none;
   visibility: collapse;
+}
+
+.vote-comment-block {
+  display: flex;
+  flex-direction: row;
+  min-width: fit-content;
+  width: 100px;
+}
+.vote-comment-btn {
+  width: 50%;
+  padding: 0 6px;
+  display: flex;
+  flex-direction: row;
+  margin-right: 10px;
+  border-radius: 10px;
+}
+.vote-comment-btn * {
+  margin-right: 4;
+}
+.vote-comment-num {
+  margin-left: 5px;
 }

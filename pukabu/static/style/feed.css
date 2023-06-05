@@ -31,27 +31,28 @@
   width: 100%;
 }
 .vote-btn {
-  font-size: x-large;
-  width: 50%;
-  height: 100%;
   text-align: center;
   font-weight: bolder;
-
   border-radius: 10px;
 
   transition: background-color linear 0.1s;
 }
-.vote-btn-plus:hover, .vote-story-block[current-vote="1"] > .vote-btn-plus  {
-  background-color: rgba(0, 128, 0, 0.096);
+.vote-story-btn {
+  font-size: x-large;
+  width: 50%;
+  height: 100%;
 }
-.vote-btn-minus:hover, .vote-story-block[current-vote="-1"] > .vote-btn-minus {
-  background-color: rgba(128, 0, 0, 0.096);
+.vote-btn-plus:hover, .vote-block[current-vote="1"] > .vote-btn-plus  {
+  background-color: var(--color-vote-bg-plus);
+}
+.vote-btn-minus:hover, .vote-block[current-vote="-1"] > .vote-btn-minus {
+  background-color: var(--color-vote-bg-minus);
 }
 .vote-story-num {
   font-size: small;
 }
 
 /* Топовый коммент */
-.comment {
+.top-comment {
   padding: 0 10px;
 }

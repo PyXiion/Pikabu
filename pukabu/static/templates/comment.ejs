@@ -7,10 +7,9 @@
       </a>
       <p><%= formatDate(new Date(time)) %></p>
     </div>
+
     <div class="comment-rating">
-      <p class="comment-rating-element"><%= rating %></p>
-      <p class="comment-rating-element rating-pluses"><%= pluses %></p>
-      <p class="comment-rating-element rating-minuses"><%= minuses %></p>
+      <p class="comment-rating-element vote-rating"><%= rating %></p>
     </div>
   </div>
 
@@ -30,10 +29,23 @@
     </div>
 
     <div class="comment-children-content">
+      <!-- Добавляется динамически -->
     </div>
 
   </div>
   <div class="comment-toggle-children button" onclick="openChildren(this)">
     <div class="comment-toggle-children-button">Открыть ветку</div>
+  </div>
+
+  <div class="vote-comment-block vote-block" voting-item-id="<%= id %>" current-vote="<%= user_vote %>">
+    <div class="rating-pluses vote-btn-plus vote-comment-btn button vote-btn" onclick="vote(this.parentElement, 'comment', 1)">
+      <p>+</p>
+      <p class="vote-comment-num vote-num"><%= pluses %></p>
+    </div>
+
+    <div class="rating-minuses vote-btn-minus vote-comment-btn button vote-btn" onclick="vote(this.parentElement, 'comment', -1)">
+      <p>-</p>
+      <p class="vote-comment-num vote-num"><%= minuses %></p>
+    </div>
   </div>
 </div>

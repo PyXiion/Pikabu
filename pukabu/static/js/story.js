@@ -70,7 +70,7 @@ async function main() {
 
   await loadCommentPage(1, story)
   
-  onScroll()
+  await onScroll()
 
   if (window.location.hash === "#comments") {
     comments_elem.scrollIntoView({ behavior: "smooth" })
@@ -83,7 +83,7 @@ async function onScroll() {
     
     await loadCommentPage(page)
 
-    onScroll()
+    await onScroll()
   }
 };
 

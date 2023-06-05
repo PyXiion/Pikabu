@@ -12,6 +12,8 @@ class PikabuComment {
     this.pluses = payload.comment_pluses
     this.minuses = payload.comment_minuses
 
+    this.user_vote = payload.curr_user_vote
+
     this.story_id = payload.story_id
 
     this.can_replay = payload.can_replay

@@ -97,16 +97,17 @@ async function get_settings() {
 }
 
 /**
- * @param {HTMLDivElement} elem 
+ * @param {HTMLDivElement} voteBlock 
  * @param {number} current_vote 
  * @param {number} new_vote 
  */
-function update_vote_block(elem, current_vote, new_vote, value) {
-  let rating_elem = elem.querySelector(".vote-story-digs")
-  let pluses_num_elem = elem.querySelector(".vote-btn-plus > .vote-story-num")
-  let minuses_num_elem = elem.querySelector(".vote-btn-minus > .vote-story-num")
+function update_vote_block(voteBlock, current_vote, new_vote, value) {
+  let rating_elem = voteBlock.parentElement.querySelector(".vote-rating")
+  let pluses_num_elem = voteBlock.querySelector(".vote-btn-plus > .vote-num")
+  let minuses_num_elem = voteBlock.querySelector(".vote-btn-minus > .vote-num")
 
-  rating_elem.textContent = Number(rating_elem.textContent) - (current_vote - new_vote)
+  if (rating_elem)
+    rating_elem.textContent = Number(rating_elem.textContent) - (current_vote - new_vote)
 
   if (current_vote === 1 && value === -1) {
     pluses_num_elem.textContent = Number(pluses_num_elem.textContent) - 1
@@ -122,17 +123,20 @@ function update_vote_block(elem, current_vote, new_vote, value) {
 
 let vote_process = false;
 /**
- * @param {HTMLDivElement} elem 
+ * @param {HTMLDivElement} voteBlock 
  * @param {number} value 
  */
-async function vote(elem, type, value) {
-  if (vote_process || client.getId() == -1) return;
+async function vote(voteBlock, type, value) {
+  if (vote_process) return;
+  if (client.getId() == -1) {
+    // Потребовать авторизацию
+    return
+  }
+  vote_process = true
 
-  let left_elem = elem.closest(".story-left-voting")  
-
-  let item_id = Number(elem.parentElement.getAttribute("voting-item-id"))
+  let item_id = Number(voteBlock.getAttribute("voting-item-id"))
   
-  let current_vote = Number(elem.parentElement.getAttribute("current-vote"))
+  let current_vote = Number(voteBlock.getAttribute("current-vote"))
   let new_vote = current_vote + value
 
   if (current_vote == value) {
@@ -142,11 +146,13 @@ async function vote(elem, type, value) {
 
   // TODO check success
 
-  update_vote_block(left_elem, current_vote, new_vote, value)
+  update_vote_block(voteBlock, current_vote, new_vote, value)
 
-  elem.parentElement.setAttribute('current-vote', new_vote)
+  voteBlock.setAttribute('current-vote', new_vote)
 
   let resp = await api.vote(item_id, type, new_vote)
+
+  console.log(`For ${item_id} voted ${new_vote}`)
 
   vote_process = false
 }

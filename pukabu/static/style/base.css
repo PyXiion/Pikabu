@@ -13,6 +13,9 @@
   --color-story-ref: #868686;
   --color-story-tag: #aaa;
 
+  --color-vote-bg-plus: #00800018;
+  --color-vote-bg-minus: #80000018;
+
   --pluses-color: #43aa8b; /* or 90be6d */
   --minuses-color: #f94144;
 
