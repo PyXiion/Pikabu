@@ -1,7 +1,12 @@
 import { MD5 } from "../utils.mjs"
 
-const apiEndPoint = 'http://localhost:45450/'
 let apiKey = null
+
+let apiEndPoint = ''
+
+export function setApi(api) {
+  apiEndPoint = api
+}
 
 let headers = {
   "deviceid": "0",

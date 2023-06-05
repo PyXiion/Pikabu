@@ -2,6 +2,27 @@
   margin: 0;
   padding: 0;
   font-family: "Roboto", "Open Sans", helvetica, arial, sans-serif;
+
+  --text-color: #222222;
+  --pluses-color: #43aa8b; /* or 90be6d */
+  --minuses-color: #f94144;
+
+  --header-color: #168AAD;
+
+  --button-color: #B5E48C;
+  --button-color-hover: #D9ED92;
+
+  color: var(--text-color);
+
+  box-sizing: border-box;
+}
+
+button {
+  background-color: var(--button-color);
+}
+button:hover {
+  cursor: pointer;
+  background-color: var(--button-color-hover);
 }
 
 /* Главное */
@@ -28,11 +49,14 @@
   border-radius: 50%;
 }
 
-.rating-pluses {
-  color: green;
+.rating-pluses * {
+  color: var(--pluses-color);
 }
-.rating-minuses {
-  color: red;
+.rating-minuses * {
+  color: var(--minuses-color);
+}
+.vote-story-num {
+  margin-bottom: 5px;
 }
 
 .button {

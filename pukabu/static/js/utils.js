@@ -3,10 +3,12 @@ var templates = {};
 async function fetch_template(filename) {
   const filepath = '/static/templates/' + filename
   let response = await fetch(filepath)
-  return ejs.compile((await response.text()).toString(), {filename: filepath})
+  return ejs.compile((await response.text()).toString())
 }
 
 async function load_templates() {
+  templates.settings = await fetch_template('settings.ejs')
+
   templates.story = await fetch_template('story.ejs')
   templates.comment = await fetch_template('comment.ejs')
   templates.profile = await fetch_template('profile.ejs')

@@ -13,6 +13,8 @@ class PikabuStory {
     this.title = payload.story_title
     this.time = payload.story_time * 1000
 
+    this.is_longpost = payload.is_longpost
+
     this.pluses = payload.story_pluses
     this.minuses = payload.story_minuses
     this.digs = payload.story_digs

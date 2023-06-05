@@ -1,0 +1,30 @@
+<div class="settings">
+  <div class="settings-header">
+    <p>Настройки</p>
+  </div>
+  <div class="settings-content">    
+    <div class="settings-field">
+      <div class="settings-field-content">
+        <p>API</p>
+        <input type="text" id="settings-api" value="<%= %>">
+      </div>
+      <div class="settings-field-description">
+        <p>
+          Укажите сервер, куда будет подключаться клиент. Это
+          необходимо из-за защиты от CORS в браузерах. Если вы 
+          её выключили, то вы можете просто указать <b>https://api.pikabu.ru/v1/</b>,
+          если нет, то вам необходим CORS-прокси, поддерживающий куки и пр. заголовки.
+          Лучше всего использовать <b><a href="#">уже сделанный мной же прокси</a></b> 
+          для этого.
+        </p>
+        <p>
+          Используйте только прокси, которым вы доверяете. Если прокси нелокальный, то
+          обязательно используйте HTTPS, так как все данные передаются в незашифрованном виде,
+          включая логин, пароль и прочее.
+        </p>
+      </div>
+    </div>
+
+    <button type="submit" class="settings-submit" id="settings-submit">Подтвердить</button>
+  </div>
+</div>

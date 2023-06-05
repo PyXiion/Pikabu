@@ -17,6 +17,8 @@ function addStory(story) {
 
   main_elem.appendChild(post)
   stories.push(post)
+
+  updateBrief(post)
 }
 
 async function loadPage(page=1) {
@@ -50,6 +52,7 @@ function handleScroll() {
     }
   }
 }
+
 
 document.addEventListener("DOMContentLoaded", main);
 document.addEventListener("scroll", handleScroll)

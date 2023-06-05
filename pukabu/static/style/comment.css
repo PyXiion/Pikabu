@@ -87,11 +87,10 @@
   width: fit-content;
   cursor: pointer;
 }
-.comment-toggle-children {
+.comment-toggle-children * {
   color: green;
 }
 .comment:not([children-closed]) > .comment-toggle-children {
-  color: rgb(0, 88, 0);
   display: none;
   visibility: collapse;
 }

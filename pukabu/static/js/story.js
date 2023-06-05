@@ -86,7 +86,7 @@ function openChildren(commentTree) {
   let commentElem = commentTree.parentElement;
   
   let isChildrenClosed = commentElem.hasAttribute('children-closed')
-  let text = commentElem.querySelector(":scope > .comment-toggle-children")
+  let text = commentElem.querySelector(":scope > .comment-toggle-children > .comment-toggle-children-button")
 
   if (isChildrenClosed) {
     text.textContent = "Закрыть ветку"

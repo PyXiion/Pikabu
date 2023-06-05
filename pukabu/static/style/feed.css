@@ -6,7 +6,6 @@
   left: calc(0px - var(--width) - 15px);
   padding: 50px 0;
   height: 100%;
-  box-sizing: border-box;
 }
 
 .story .story-left-voting {

@@ -1,0 +1,61 @@
+.settings {
+  position: fixed;
+
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  height: fit-content;
+
+  min-width: 300px;
+  max-width: 420px;
+
+  background-color: whitesmoke;
+  border-radius: 15px;
+
+
+  box-shadow: 10px 0 10px rgb(228, 228, 228), 
+              -10px 0 10px rgb(228, 228, 228),
+              0 5px 5px rgb(228, 228, 228),
+              0 -5px 5px rgb(228, 228, 228);
+}
+
+.settings-header {
+  font-weight: bold;
+  font-size: x-large;
+  text-align: center;
+  background-color: var(--header-color);
+  border-radius: 15px 15px 0 0;
+  padding: 5px;
+}
+.settings-header p {
+  color: white;
+}
+
+.settings-content {
+  padding: 10px;
+}
+
+.settings-field-content {
+  display: flex;
+  flex-direction: row;
+}
+.settings-field-content * {
+  margin-right: 15px;
+  width: 50%;
+}
+.settings-field-description p {
+  color: gray;
+  font-size: small;
+  margin-top: 5px;
+}
+
+.settings-submit {
+  border-radius: 15px;
+  border: none;
+  margin-top: 30px;
+  padding: 5px;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+}

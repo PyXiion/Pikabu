@@ -1,4 +1,4 @@
-<article class="story" story-id="<%= id %>">
+<article class="story" story-id="<%= id %>" long="false">
   <div class="story-author-info">
     <img src="<%= author.avatar %>" class="avatar story-author-avatar">
     <div class="story-author-other-info">
@@ -15,6 +15,11 @@
         <%- title %>
       </a>
     </h2>
+    <div class="story-tags">
+      <% for (const tag of tags) { %>
+        <span class="story-tag"><%= tag %></span>
+      <% } %>
+    </div>
   </div>
 
   <div class="story-left">
@@ -40,7 +45,7 @@
     </div>
   </div>
   
-  <div class="story-content">
+  <div class="story-content" brief="false">
     <% for (const elem of content) { %>
 
       <%# ТЕКСТ %>
@@ -59,6 +64,9 @@
       
       <% } %>
     <% } %>
+  </div>
+  <div class="story-toggle-brief"> 
+    <p class="button" onclick="toggleStory(this);">Раскрыть</p>
   </div>
   
   <% if (from_feed) { %>
