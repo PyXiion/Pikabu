@@ -80,8 +80,8 @@
   <% if (from_feed) { %>
 
     <div class="story-feed-buttons">
-      <a href="/story/<%= id %>#comments">
-        <p>Комментарии (<%= comments_count %>)</p>
+      <a href="/story/<%= id %>#comments" target="_blank">
+        <p><%= getInflected(comments_count, words.comments) %></p>
       </a>
     </div>
 

@@ -69,14 +69,21 @@ async function main() {
   comments_elem = document.getElementById("comments")
 
   await loadCommentPage(1, story)
+  
+  onScroll()
 
+  if (window.location.hash === "#comments") {
+    comments_elem.scrollIntoView({ behavior: "smooth" })
+  }
 }
 
-async function onScroll(event) {
+async function onScroll() {
   if ((window.innerHeight + window.scrollY) + 1 >= document.body.offsetHeight && !loading) {
     page += 1
     
     await loadCommentPage(page)
+
+    onScroll()
   }
 };
 
