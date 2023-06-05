@@ -151,8 +151,28 @@ async function vote(elem, type, value) {
   vote_process = false
 }
 
-function onScroll() {
+let brovastik = document.getElementById("brovastik")
+let brovastikHidden = true
+let offsetY = 0
+let lastScroll = 0
+function onScroll(event) {
+  offsetY += window.scrollY - lastScroll
+  lastScroll = window.scrollY
 
+  if (offsetY >= 300) {
+    if (brovastikHidden)
+      brovastik.classList.remove("brovastik-hidden")
+    offsetY = 300
+    brovastikHidden = false
+  }
+  else if (offsetY < 300 && !brovastikHidden) {
+    brovastik.classList.add("brovastik-hidden")
+    offsetY = -100
+    brovastikHidden = true
+  }
+  else if (offsetY < -100) {
+    offsetY = -100
+  }
 }
 
 

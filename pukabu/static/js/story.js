@@ -72,7 +72,7 @@ async function main() {
 
 }
 
-async function onScroll(ev) {
+async function onScroll(event) {
   if ((window.innerHeight + window.scrollY) + 1 >= document.body.offsetHeight && !loading) {
     page += 1
     
