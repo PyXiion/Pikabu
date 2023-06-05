@@ -32,8 +32,6 @@ function addComment(comment) {
     parent_elem = document.querySelector(`.comment[comment-id="${comment.parent_id}"] > .comment-children > .comment-children-content`)
 
   if (!parent_elem) {
-    console.log(comment.parent_id + ' not found!')
-    console.log(comment)
     return
   }
 
@@ -44,15 +42,24 @@ function addComment(comment) {
 
 let page = 1
 
+let loading = false;
+let no_more_comments = false;
+
 async function loadCommentPage(page=1, story = null) {
+  if (loading || no_more_comments) return;
+  loading = true
+
   if (!story)
     story = await PikabuStory.fetch(story_id, page)
+  
+  if (!story.comments.length)
+    no_more_comments = true
 
   for (const comment of story.comments)
     addComment(comment)
+  loading = false
 }
 
-let loading = false;
 async function main() {
   await init()
 
@@ -61,20 +68,15 @@ async function main() {
 
   comments_elem = document.getElementById("comments")
 
-  loading = true
   await loadCommentPage(1, story)
-  loading = false
 
 }
 
 async function onScroll(ev) {
-  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight && !loading) {
-    loading = true
+  if ((window.innerHeight + window.scrollY) + 1 >= document.body.offsetHeight && !loading) {
     page += 1
     
     await loadCommentPage(page)
-    
-    loading = false
   }
 };
 

@@ -96,24 +96,57 @@ async function get_settings() {
   localStorage.setItem('settings', JSON.stringify(savedSettings))
 }
 
+/**
+ * @param {HTMLDivElement} elem 
+ * @param {number} current_vote 
+ * @param {number} new_vote 
+ */
+function update_vote_block(elem, current_vote, new_vote, value) {
+  let rating_elem = elem.querySelector(".vote-story-digs")
+  let pluses_num_elem = elem.querySelector(".vote-btn-plus > .vote-story-num")
+  let minuses_num_elem = elem.querySelector(".vote-btn-minus > .vote-story-num")
+
+  rating_elem.textContent = Number(rating_elem.textContent) - (current_vote - new_vote)
+
+  if (current_vote === 1 && value === -1) {
+    pluses_num_elem.textContent = Number(pluses_num_elem.textContent) - 1
+  } else if (current_vote === 0) {
+    if (value === 1)
+      pluses_num_elem.textContent = Number(pluses_num_elem.textContent) + 1
+    else
+    minuses_num_elem.textContent = Number(minuses_num_elem.textContent) + 1
+  } else if (current_vote === -1 && value === 1) {
+    minuses_num_elem.textContent = Number(minuses_num_elem.textContent) - 1
+  }
+}
+
 let vote_process = false;
 /**
- * 
  * @param {HTMLDivElement} elem 
  * @param {number} value 
  */
 async function vote(elem, type, value) {
   if (vote_process || client.getId() == -1) return;
 
-  let item_id = Number(elem.parentElement.getAttribute("voting-item-id"))
-  let current_vote = Number(elem.parentElement.getAttribute("current-vote"))
+  let left_elem = elem.closest(".story-left-voting")  
 
+  let item_id = Number(elem.parentElement.getAttribute("voting-item-id"))
+  
+  let current_vote = Number(elem.parentElement.getAttribute("current-vote"))
   let new_vote = current_vote + value
+
+  if (current_vote == value) {
+    vote_process = false
+    return
+  }
+
+  // TODO check success
+
+  update_vote_block(left_elem, current_vote, new_vote, value)
+
   elem.parentElement.setAttribute('current-vote', new_vote)
 
-  let resp = await api.vote(item_id, type, new_vote)
-  
-  // TODO check success
+  // let resp = await api.vote(item_id, type, new_vote)
 
   vote_process = false
 }

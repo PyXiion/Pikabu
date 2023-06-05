@@ -12,13 +12,13 @@
 
       <div class="sidebar-user-other">
         <p class="sidebar-user-name"><%= client.name %></p>
-        <p class="quit-button button" onclick="client.logout()">Выйти</p>
+        <p class="quit-button button text-button" onclick="client.logout()">Выйти</p>
       </div>
     </div>
 
     <div class="sidebar-user-additional sidebar-user-element">
       <p><span class="sidebar-user-number"><%= client.rating %></span> рейтинг</p>
-      <p><span class="sidebar-user-number"><%= client.subscribers %></span> подписчик(ов)</p>
+      <p><span class="sidebar-user-number"><%= client.subscribers %></span> <%= inflect(client.subscribers, words.subscribers) %></p>
     </div>
 
   </div>

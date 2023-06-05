@@ -3,7 +3,9 @@
   padding: 0;
   font-family: "Roboto", "Open Sans", helvetica, arial, sans-serif;
 
-  --text-color: #222222;
+  --text-color: #222;
+  --text-btn-hover-color: #888;
+
   --pluses-color: #43aa8b; /* or 90be6d */
   --minuses-color: #f94144;
 
@@ -49,10 +51,10 @@ button:hover {
   border-radius: 50%;
 }
 
-.rating-pluses * {
+.rating-pluses, .rating-pluses * {
   color: var(--pluses-color);
 }
-.rating-minuses * {
+.rating-minuses, .rating-minuses * {
   color: var(--minuses-color);
 }
 .vote-story-num {
@@ -61,4 +63,9 @@ button:hover {
 
 .button {
   cursor: pointer;
+  transition: color linear 0.1s;
+  user-select: none;
+}
+.text-button:hover {
+  color: var(--text-btn-hover-color);
 }

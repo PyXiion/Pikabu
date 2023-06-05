@@ -38,6 +38,8 @@
   font-weight: bolder;
 
   border-radius: 10px;
+
+  transition: background-color linear 0.1s;
 }
 .vote-btn-plus:hover, .vote-story-block[current-vote="1"] > .vote-btn-plus  {
   background-color: rgba(0, 128, 0, 0.096);
