@@ -14,10 +14,18 @@
       <a class="story-title-text" target="_blank" href="/story/<%= id %>">
         <%- title %>
       </a>
+
+      <% if (parent_id) { %>
+        <a class="story-title-text story-parent-ref" target="_blank" href="/story/<%= parent_id %>">
+          (+)
+        </a>
+      <% } %>
+
     </h2>
+
     <div class="story-tags">
       <% for (const tag of tags) { %>
-        <span class="story-tag"><%= tag %></span>
+        <a class="story-tag" href="/tag/<%= tag %>"><%= tag %></a>
       <% } %>
     </div>
   </div>

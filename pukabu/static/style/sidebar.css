@@ -3,10 +3,10 @@
   width: 300px;
   
   border-radius: 15px;
-  box-shadow: 10px 0 10px rgb(228, 228, 228), 
-              -10px 0 10px rgb(228, 228, 228),
-              0 5px 5px rgb(228, 228, 228),
-              0 -5px 5px rgb(228, 228, 228);
+  box-shadow: 10px 0 10px var(--shadow-color), 
+              -10px 0 10px var(--shadow-color),
+              0 5px 5px var(--shadow-color),
+              0 -5px 5px var(--shadow-color);
 }
 #sidebar-main {
   height: fit-content;
@@ -48,10 +48,10 @@
 }
 .auth-form input {
   border: none;
-  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.116), 
-              0px -3px 3px rgba(0, 0, 0, 0.116),
-              3px 0px 3px rgba(0, 0, 0, 0.116), 
-              -3px 0px 3px rgba(0, 0, 0, 0.116);
+  box-shadow: 0px 3px 3px var(--shadow-color), 
+              0px -3px 3px var(--shadow-color),
+              3px 0px 3px var(--shadow-color), 
+              -3px 0px 3px var(--shadow-color);
 }
 .auth-form-field {
   border-radius: 30px;

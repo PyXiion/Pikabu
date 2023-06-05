@@ -6,6 +6,13 @@
   --text-color: #222;
   --text-btn-hover-color: #888;
 
+  --color-link: #3ebb59;
+  --color-link-hover: #4ddb6c;
+
+  --color-story-title: #424242;
+  --color-story-ref: #868686;
+  --color-story-tag: #aaa;
+
   --pluses-color: #43aa8b; /* or 90be6d */
   --minuses-color: #f94144;
 
@@ -13,6 +20,8 @@
 
   --button-color: #B5E48C;
   --button-color-hover: #D9ED92;
+
+  --shadow-color: #e4e4e4;
 
   color: var(--text-color);
 
@@ -25,6 +34,14 @@ button {
 button:hover {
   cursor: pointer;
   background-color: var(--button-color-hover);
+}
+
+a {
+  color: var(--color-link);
+  transition: color linear 0.1s;
+}
+a:hover {
+  color: var(--color-link-hover);
 }
 
 /* Главное */

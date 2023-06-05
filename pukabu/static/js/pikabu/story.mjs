@@ -14,6 +14,8 @@ class PikabuStory {
       this.title = story_payload.story_title
       this.time = story_payload.story_time * 1000
 
+      this.parent_id = story_payload.parent_story_id
+
       this.is_longpost = story_payload.is_longpost
 
       this.pluses = story_payload.story_pluses
