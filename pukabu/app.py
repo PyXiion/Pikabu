@@ -29,6 +29,7 @@ def index(feedmode='best'):
 def story(story_id):
     return render_template('story.html', story_id=story_id)
 
+@bp.route('/@<username>')
 @bp.route('/user/<username>')
 def profile(username):
     return render_template('profile.html', username=username)
