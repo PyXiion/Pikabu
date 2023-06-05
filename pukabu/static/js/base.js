@@ -146,7 +146,7 @@ async function vote(elem, type, value) {
 
   elem.parentElement.setAttribute('current-vote', new_vote)
 
-  // let resp = await api.vote(item_id, type, new_vote)
+  let resp = await api.vote(item_id, type, new_vote)
 
   vote_process = false
 }
